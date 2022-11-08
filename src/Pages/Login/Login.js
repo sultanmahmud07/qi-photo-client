@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { Link } from 'react-router-dom';
 // import Login-img from '../../Assat/Register/login.jpg';
 import loginImg from '../../Assat/Register/login.jpg';
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
   const [error, setError] = useState('');
-  const { logIn, googleSignIn } = useContext(AuthContext)
+  const { logIn, googleSignIn, githubLogin } = useContext(AuthContext)
   const provider = new GoogleAuthProvider();
   // console.log(logIn);
 
@@ -52,6 +52,28 @@ const Login = () => {
     .catch(error =>{
       console.error(error)
     })
+  };
+
+
+  const handleGithubLogin = () =>{
+    githubLogin()
+    .then(result => {
+      console.log(result.user);
+      Swal.fire(
+        'Login Successfully!',
+        'You clicked the button!',
+        'success'
+      )
+    })
+    .catch(error =>{
+      console.error(error)
+      Swal.fire(
+        'Opp!! something is wrong!',
+        'You clicked the button!',
+        'error'
+      )
+    })
+    
   }
 
   return (
@@ -86,7 +108,7 @@ const Login = () => {
               <div className='text-center'>
                 <p className='text-center'>Or sign up with</p>
         <button onClick={handleGoogleSignIn} className="btn btn-outline btn-warning m-2">Google</button>
-        <button className="btn btn-outline btn-info m-2">Facebook</button>
+        <button onClick={handleGithubLogin} className="btn btn-outline btn-info m-2">Github</button>
         </div>
             </form>
           </div>

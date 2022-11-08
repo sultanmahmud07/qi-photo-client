@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import app from '../../fitebase/firebase.config';
 
 
@@ -30,6 +30,14 @@ const logIn = (email, password) => {
   }
 
 
+
+  // Sign In with Github >>
+  const githubLogin = () => {
+    return signInWithPopup(auth, new GithubAuthProvider() )
+  }
+
+
+
 // .Logout any user >>
 const logOut = () => {
   return signOut(auth);
@@ -55,7 +63,8 @@ useEffect(() =>{
     loading,
     createUser,
     logOut,
-    googleSignIn
+    googleSignIn,
+    githubLogin
   }
   return (
     <AuthContext.Provider value={authInfo}>
