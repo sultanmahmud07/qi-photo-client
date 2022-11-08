@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 
 const Header = () => {
-  const {logOut} =useContext(AuthContext);
+  const {logOut, user} =useContext(AuthContext);
 
 
   const handleLogOut = () => {
@@ -33,11 +33,28 @@ const Header = () => {
    
   }
 
+
   const menuItems = <>
-    <li className='font-semibold'><Link to='/'>Home</Link></li>
-    <li className='font-semibold'><Link to='/services'>Services</Link></li>
-    
+  <li className='font-semibold'><Link to='/'>Home</Link></li>
+  <li className='font-semibold'><Link to='/services'>Services</Link></li>
+  <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+  <>
+  {
+    user?.email ?
+     <>
+      <li className='font-semibold'><Link to='/review'>Review</Link></li>
+     <li className='font-semibold'><button onClick={handleLogOut} className="btn btn-primary">Log Out</button></li>
+     </> 
+     : 
+     <>
+     <li className='font-semibold'><Link to='/login'>Login</Link></li>
+     <li className='font-semibold'><Link to='/register'>Register</Link></li>
+     </>
+  }
   </>
+ 
+  
+</>
   return (
     <div className='border-b-2 mb-3'>
       <div className="navbar bg-base-100 common-w">
@@ -63,7 +80,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        <button onClick={handleLogOut} className="btn btn-primary">Log Out</button>
+        
           <a className="btn">Get started</a>
         </div>
       </div>

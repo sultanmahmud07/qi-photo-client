@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ItemCard from './ItemCard/ItemCard';
+import UserReview from './UserReview';
 
 const Details = () => {
-  const {title, img, price, reting, description, item_details} =useLoaderData();
+  const {title, img, price, reting, description,reveiw_details, item_details} =useLoaderData();
   const itemImage = {item_details}
-  console.log(itemImage);
+  console.log(reveiw_details);
   return (
     <div className='mb-40'>
       <div className='w-4/5 m-auto'>
@@ -23,6 +24,25 @@ const Details = () => {
           ></ItemCard>)
         }
       </div>
+
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+          <div className='bg-slate-300 p-4'>
+            {
+              reveiw_details.map(review => <UserReview
+              key={review.id}
+              review={review}
+              ></UserReview>)
+            }
+          </div>
+          <div>
+            <form>
+            <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
+            <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
+            <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
+            </form>
+          </div>
+        </div>
+
       <p>{description}</p>
       </div>
     </div>
