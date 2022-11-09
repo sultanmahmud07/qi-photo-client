@@ -4,6 +4,8 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ItemCard from './ItemCard/ItemCard';
 import UserReview from './UserReview';
 import Swal from 'sweetalert2';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Details = () => {
   const {user} = useContext(AuthContext)
@@ -30,7 +32,8 @@ const Details = () => {
       name,
       photoURL,
       textAria,
-      rating
+      rating,
+      img
     }
 
     fetch('http://localhost:5000/reviews', {
@@ -42,10 +45,25 @@ const Details = () => {
 
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+      if(data.acknowledged){
+        toast.success('Wow your review add successfully!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+          form.reset();
+      }
+    })
     .catch(er => console.error(er));
 
-    
+
    
   }
 
@@ -133,6 +151,7 @@ const Details = () => {
 
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

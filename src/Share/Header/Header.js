@@ -46,7 +46,7 @@ const Header = () => {
     user?.email ?
      <>
       <li className='font-semibold'><Link to='/review'>My Review</Link></li>
-      <li className='font-semibold'><Link to='/review'>Add Service</Link></li>
+      <li className='font-semibold'><Link to='/addservice'>Add Service</Link></li>
      <li className='font-semibold'><button onClick={handleLogOut} className="btn btn-primary">Log Out</button></li>
      </> 
      : 
@@ -87,7 +87,7 @@ const Header = () => {
           {
             user?.uid ?
              <>
-                <span className='user-name mr-1'>{user?.displayName}</span>
+                <span className='user-name mr-1 sm:block hidden'>{user?.displayName}</span>
           <img className='w-12 rounded-full' src={user?.photoURL} alt="" />
              </>
               :
