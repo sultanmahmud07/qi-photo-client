@@ -8,8 +8,8 @@ import Swal from 'sweetalert2';
 
 const Header = () => {
   const {logOut, user} =useContext(AuthContext);
-  console.log(user?.displayName);
-  console.log(user?.photoURL);
+  // console.log(user?.displayName);
+  // console.log(user?.photoURL);
 
 
   const handleLogOut = () => {

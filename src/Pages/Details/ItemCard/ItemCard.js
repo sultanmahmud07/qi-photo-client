@@ -4,7 +4,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 const ItemCard = ({item}) => {
   const {url, date} =item
-  console.log(item);
+  // console.log(item);
   return (
     <div>
       <div className="card card-compact cursor-pointer bg-base-100 shadow-xl">

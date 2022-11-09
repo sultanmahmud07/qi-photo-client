@@ -1,12 +1,59 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ItemCard from './ItemCard/ItemCard';
 import UserReview from './UserReview';
+import Swal from 'sweetalert2';
 
 const Details = () => {
-  const { title, img, price, reting, description, reveiw_details, item_details } = useLoaderData();
+  const {user} = useContext(AuthContext)
+  const { _id, title, img, price, reting, description, reveiw_details, item_details } = useLoaderData();
   const itemImage = { item_details }
-  console.log(reveiw_details);
+
+  console.log(_id);
+
+  // Review handle setup >>
+  const handleReview = (event) => {
+  if(user?.uid){
+    event.preventDefault();
+    const form =event.target;
+    const name =form.name.value;
+    const email =form.email.value;
+    const photoURL =form.photoURL.value;
+    const rating =form.rating.value;
+    const textAria =form.textAria.value;
+
+    const review = {
+      review: _id,
+      reviewName: title,
+      email,
+      name,
+      photoURL,
+      textAria,
+      rating
+
+
+    }
+    console.log(review);
+  }
+  else{
+    event.preventDefault();
+    Swal.fire(
+      'Please Login to add a review!',
+      'click btn go to back!',
+      'warning'
+    )
+  }
+   
+  }
+
+  //Form all data cleared >>
+  const handleClearAll = (event) => {
+    event.preventDefault();
+    const form =event.target;
+   
+  }
+
   return (
     <div className='mb-40'>
       <div className='w-4/5 m-auto'>
@@ -42,28 +89,28 @@ const Details = () => {
 
             <div>
               <h2 className='text-2xl py-3 inline-block font-semibold'>Add Your Review</h2>
-              <form>
+              <form onSubmit={handleReview}>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 py-4'>
                 <div>
-                  <p>Name</p>
-                <input type="text" placeholder="your name" className="input input-bordered input-primary w-full md:max-w-xs" />
+                  <p className='font-semibold mb-1'>Name</p>
+                <input name='name' type="text" placeholder="your name" defaultValue={user?.displayName} className="input input-bordered input-primary w-full md:max-w-xs" required />
                 </div>
                 <div>
-                  <p>Email</p>
-                <input type="email" placeholder="email" className="input input-bordered input-primary w-full md:max-w-xs" />
+                  <p className='font-semibold mb-1'>Email</p>
+                <input name='email' type="email" placeholder="email" defaultValue={user?.email} readOnly className="input input-bordered input-primary w-full md:max-w-xs" required />
                 </div>
                 <div>
-                  <p>PhotoURL</p>
-                <input type="url" placeholder="your photoURL" className="input input-bordered input-primary w-full md:max-w-xs" />
+                  <p className='font-semibold mb-1'>PhotoURL</p>
+                <input name='photoURL' type="url" placeholder="your photoURL" className="input input-bordered input-primary w-full md:max-w-xs" required />
                 </div>
                 <div>
-                  <p>Rating of 5</p>
-                <input type="text" placeholder="give your rating" className="input input-bordered input-primary w-full md:max-w-xs" />
+                  <p className='font-semibold mb-1'>Rating of 5</p>
+                <input name='rating' type="text" placeholder="give your rating" className="input input-bordered input-primary w-full md:max-w-xs" required />
                 </div>
                 </div>
-                <textarea className="textarea w-full textarea-warning" placeholder=""></textarea>
-                <div className='grid grid-cols-2 gap-5'>
-                  <input className='reviw-btn w-full' type="submit" value="Clear all" />
+                <textarea name='textAria' className="textarea w-full textarea-warning" placeholder="Review Details text" required></textarea>
+                <div className='grid grid-cols-2 gap-5 py-5'>
+                  <span onClick={handleClearAll} className='reviw-btn w-full text-center'>Clear all</span>
                   <input className='reviw-btn w-full' type="submit" value="Add Review" />
                 </div>
               </form>
