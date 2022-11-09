@@ -1,5 +1,31 @@
 .common-w{
-  width: 86%;
+  width: 82%;
   /* width: 1140px; */
   margin: auto;
+  
+}
+.h-color{
+  background-color: rgba(0, 0, 0, 0.918);
+  color: rgb(255, 255, 255);
+}
+
+.common-c{
+  color: rgba(52, 65, 153, 0.94);
+}
+/* .footer-p-set{
+  position: sticky;
+  bottom: 0px;
+} */
+.q{
+  color: rgb(52, 65, 153);
+  font-size: 60px;
+}
+.i{
+  color: rgba(24, 214, 247, 0.929);
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+.user-name{
+  margin-bottom: -10px;
 }
