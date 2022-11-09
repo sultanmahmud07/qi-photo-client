@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import { FaStarHalfAlt } from 'react-icons/fa';
 import { FaRegStar } from 'react-icons/fa';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceCard = ({service}) => {
   const {title, description, img, _id, reveiw, item_details, price} =service;
@@ -10,7 +12,11 @@ const ServiceCard = ({service}) => {
   return (
     <div>
       <div className="card w-full bg-base-100 shadow-xl">
-        <figure><img src={img} alt="Shoes" /></figure>
+        <PhotoProvider>
+          <PhotoView src={img}>
+          <figure><img src={img} alt="Shoes"  className=' cursor-pointer' /></figure>
+          </PhotoView>
+        </PhotoProvider>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
           <p>{

@@ -1,4 +1,6 @@
 import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const About = () => {
   return (
@@ -11,7 +13,11 @@ const About = () => {
         </div>
         <div className="flex flex-col lg:flex-row justify-between">
           <div className='w-full lg:w-1/2'>
+           <PhotoProvider>
+            <PhotoView className="w-full" src="https://placeimg.com/260/400/arch">
             <img src="https://placeimg.com/260/400/arch" className="max-w-sm rounded-lg shadow-2xl" />
+            </PhotoView>
+           </PhotoProvider>
           </div>
           <div className='w-full lg:w-1/2'>
             <h1 className="text-2xl font-bold">About me !!</h1>
