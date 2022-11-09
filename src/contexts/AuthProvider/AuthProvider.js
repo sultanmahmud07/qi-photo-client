@@ -15,17 +15,20 @@ const [loading, setLoading] =useState(true);
 
 // 1.Create a new User >>
 const createUser = (email, password) => {
+  setLoading(true)
   return createUserWithEmailAndPassword(auth, email, password)
 };
 
 
 // 2.Login with email and password >>
 const logIn = (email, password) => {
+  setLoading(true)
   return signInWithEmailAndPassword(auth, email, password);
 }
 
 //3. Sign In with Google >>
   const googleSignIn = (provider) => {
+    setLoading(true)
     return signInWithPopup(auth, provider);
   }
 
@@ -33,6 +36,7 @@ const logIn = (email, password) => {
 
   // Sign In with Github >>
   const githubLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, new GithubAuthProvider() )
   }
 
@@ -51,6 +55,7 @@ useEffect(() =>{
   const unsubscribe = onAuthStateChanged(auth, currentUser => {
     console.log(currentUser);
     setUser(currentUser);
+    setLoading(false)
   } );
   return () => {
     return unsubscribe()

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaBeer } from 'react-icons/fa';
 
-const TableRow = ({ review }) => {
+const TableRow = ({ review, handleDeleted }) => {
   const { photoURL, email, img, rating, reviewName, service, textAria, _id } = review;
   const [reviewService, setReviewService] = useState({});
 
@@ -13,18 +13,7 @@ const TableRow = ({ review }) => {
   }, [service])
 
 
-  const handleDeleted = id => {
-    const proceed = window.confirm('Are you sure, you want to delete this review ?');
-    if(proceed){
-      fetch(`http://localhost:5000/reviews/${id}`, {
-        method: 'DELETE'
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-      })
-    }
-  }
+
 
 
   return (
@@ -54,7 +43,7 @@ const TableRow = ({ review }) => {
       </td>
       <td>Purple</td>
       <th>
-        <button className="btn btn-ghost btn-xs">details</button>
+        <button className="btn">Edit</button>
       </th>
       <th>
       <button onClick={() => handleDeleted(_id)} className="btn btn-square btn-outline">
