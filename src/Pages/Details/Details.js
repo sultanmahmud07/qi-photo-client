@@ -10,7 +10,7 @@ const Details = () => {
   const { _id, title, img, price, reting, description, reveiw_details, item_details } = useLoaderData();
   const itemImage = { item_details }
 
-  console.log(_id);
+  // console.log(_id);
 
   // Review handle setup >>
   const handleReview = (event) => {
@@ -24,18 +24,31 @@ const Details = () => {
     const textAria =form.textAria.value;
 
     const review = {
-      review: _id,
+      service: _id,
       reviewName: title,
       email,
       name,
       photoURL,
       textAria,
       rating
-
-
     }
-    console.log(review);
+
+    fetch('http://localhost:5000/reviews', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(review)
+
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(er => console.error(er));
+
+    
+   
   }
+
   else{
     event.preventDefault();
     Swal.fire(
