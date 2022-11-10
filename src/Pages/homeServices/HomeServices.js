@@ -7,7 +7,7 @@ import ServiceCard from '../../Share/ServiceCard/ServiceCard';
 const HomeServices = () => {
   const [services, setServices] =useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/homeservices')
+    fetch('https://assignment-server-iota.vercel.app/homeservices')
     .then(res => res.json())
   .then(data => setServices(data))
   }, [])

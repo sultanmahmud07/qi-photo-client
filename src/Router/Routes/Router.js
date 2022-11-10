@@ -50,12 +50,12 @@ const router =createBrowserRouter([
       {
         path: '/services/details/:id',
         element: <Details></Details>,
-        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-server-iota.vercel.app/services/${params.id}`)
       },
       {
         path: '/details/:id',
         element: <Details></Details>,
-        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-server-iota.vercel.app/services/${params.id}`)
       },
       {
         path: '/login',

@@ -37,7 +37,7 @@ const Details = () => {
       img
     }
 
-    fetch('http://localhost:5000/reviews', {
+    fetch('https://assignment-server-iota.vercel.app/reviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

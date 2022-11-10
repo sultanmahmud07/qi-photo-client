@@ -8,7 +8,7 @@ const TableRow = ({ review, handleDeleted }) => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${service}`)
+    fetch(`https://assignment-server-iota.vercel.app/services/${service}`)
       .then(res => res.json())
       .then(data => setReviewService(data));
   }, [service])
