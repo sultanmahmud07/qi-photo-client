@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 
 const UserReview = ({ review }) => {
   const { name, r_img, r_des } = review
@@ -9,6 +10,7 @@ const UserReview = ({ review }) => {
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
           <p>{r_des}</p>
+          <span className='flex'><span className='text-warning'><FaStar></FaStar></span> 4.5</span>
           
         </div>
       </div>

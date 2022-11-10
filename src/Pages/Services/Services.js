@@ -8,11 +8,21 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Services = () => {
   const [services, setServices] =useState([]);
+  const [loading, setLoading] =useState(true);
   useEffect(() => {
     fetch('https://assignment-server-iota.vercel.app/services')
     .then(res => res.json())
-  .then(data => setServices(data))
+  .then(data => {
+    setServices(data)
+    setLoading(false)
+  })
   }, [])
+
+  if(loading){
+    return <div className='text-center py-40'>
+      <div className="radial-progress text-primary " style={{"--value":70}}>70%</div>
+      </div>
+  }
   return (
    <HelmetProvider>
      <Helmet>
