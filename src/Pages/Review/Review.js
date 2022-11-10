@@ -6,11 +6,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Review = () => {
+  // const [noReview, setNoReview] = useState('no reviw add');
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
 
-
+  // if(!reviews){
+  //   setNoReview('no review added')
+  // }
+  // console.log(noReview);
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?email=${user?.email}`)
       .then(res => res.json())
@@ -18,6 +22,7 @@ const Review = () => {
   }, [user?.email])
 
   const handleDeleted = id => {
+   
     const proceed = window.confirm('Are you sure, you want to delete this review ?');
     if (proceed) {
       fetch(`http://localhost:5000/reviews/${id}`, {
@@ -50,46 +55,40 @@ const Review = () => {
 
 
   return (
-    <div className='common-w'>
-      <h1 className='text-4xl'>You have {reviews.length}</h1>
+    <div className='common-w pb-12'>
+      <h1 className='text-4xl'>Your reviews</h1>
       <div className="overflow-x-auto w-full">
-        <table className="table w-full">
+       {
+        reviews.length > 0 ?  <table className="table w-full">
 
-          <thead>
-            <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
+        <thead>
+          <tr>
+            
+            <th>Service details</th>
+            <th>Your info</th>
+            <th>Job</th>
+            <th>Favorite Color</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+         
 
-            {
-              reviews.map(review => <TableRow
-                key={review._id}
-                review={review}
-                handleDeleted={handleDeleted}
-              ></TableRow>)
-            }
-          </tbody>
+          <>
+          {
+            reviews.map(review => <TableRow
+              key={review._id}
+              review={review}
+              handleDeleted={handleDeleted}
+            ></TableRow>)
+          }
+          </>
+        </tbody>
 
-          <tfoot>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
-            </tr>
-          </tfoot>
+        
 
-        </table>
+      </table> : <p className='text-xl md:text-6xl text-center text-gray-300 font-semibold md:py-40'>No reviews were added</p>
+       }
       </div>
       <ToastContainer />
     </div>
