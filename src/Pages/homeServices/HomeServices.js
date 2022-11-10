@@ -15,7 +15,7 @@ const HomeServices = () => {
     <div className='common-w py-6 lg:pt-20'>
       <div>
       <h1 className='text-5xl common-c text-center font-semibold uppercase'>My Services</h1>
-      <p className='lg:w-2/4 text-center m-auto py-4 text-xl lg:pb-10'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod quasi eos id cum illo tenetur magnam deleniti. Tenetur, necessitatibus reprehenderit.</p>
+      <p className='lg:w-2/4 text-center m-auto py-4 text-xl lg:pb-10'>If you want to take pictures from any place you like, you can select any of my services. With my service you can take pictures of your heart for very less money.</p>
 
       </div>
       {/* service containers */}
