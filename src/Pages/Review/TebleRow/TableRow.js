@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { FaBeer } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
+
 
 const TableRow = ({ review, handleDeleted }) => {
-  const { photoURL, email, img, rating, reviewName, service, textAria, _id } = review;
+  const { photoURL, email, img, rating, reviewName, service, textAria, _id, name } = review;
   const [reviewService, setReviewService] = useState({});
 
 
@@ -31,17 +32,21 @@ const TableRow = ({ review, handleDeleted }) => {
             </div>
           </div>
           <div>
-            <div className="font-bold">{reviewName}</div>
-            <div className="text-sm opacity-50">{rating}</div>
+            <div className="font-bold pb-5">{reviewName}</div>
+            <div className="text-2xl flex ">Rating: <span className='text-3xl mr-2 text-warning'><FaStar></FaStar></span>{rating}</div>
           </div>
         </div>
       </td>
       <td>
-        Zemlak, Daniel and Leannon
+        {name}
         <br />
-        <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+        <span className="badge badge-ghost badge-sm">{textAria}</span>
       </td>
-      <td>Purple</td>
+      <td>
+      <div className="mask mask-squircle w-12 h-12">
+                <img src={photoURL} alt="Avatar Tailwind CSS Component" />
+              </div>
+      </td>
       <th>
         <button className="btn">Edit</button>
       </th>

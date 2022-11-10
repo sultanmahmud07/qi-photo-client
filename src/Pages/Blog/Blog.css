@@ -4,16 +4,17 @@
 }
 .blog-title{
   /* color: orangered; */
+  color: rgba(17, 61, 148, 0.907);
   display: inline-block;
-  border-left: 3px solid green;
-  border-right:3px solid green;
+  border-left: 3px solid rgb(24, 157, 210);
+  border-right:3px solid rgb(24, 157, 210);
   border-radius: 20px;
   padding: 7px;
   margin-top: 10px;
   padding: 6px 30px;
 }
 .q-title{
-  border-bottom: 3px solid green;
+  border-bottom: 3px solid rgba(17, 61, 148, 0.907);
   display: inline-block;
   border-bottom-left-radius: 20px;
   padding-left: 20px;

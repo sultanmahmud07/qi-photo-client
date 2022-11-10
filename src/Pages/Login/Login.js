@@ -85,11 +85,11 @@ const Login = () => {
   }
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen ">
       <div className='common-w'>
         <div className="flex flex-col lg:flex-row gap-3">
           <div className="w-full lg:w-1/2 m-auto">
-            <img className='' src={loginImg} alt="" />
+            <img className='rounded-3xl' src={loginImg} alt="" />
           </div>
           <div className="card w-full m-auto lg:w-1/2 max-w-sm  shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
@@ -117,6 +117,9 @@ const Login = () => {
                 <p className='text-center'>Or sign up with</p>
         <button onClick={handleGoogleSignIn} className="btn btn-outline btn-warning m-2">Google</button>
         <button onClick={handleGithubLogin} className="btn btn-outline btn-info m-2">Github</button>
+        <div>
+          <span>have an accout? <Link to='/register' className='text-blue-700 font-semibold'>Sign Up</Link></span>
+        </div>
         </div>
             </form>
           </div>

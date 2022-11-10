@@ -66,8 +66,9 @@ const Review = () => {
             
             <th>Service details</th>
             <th>Your info</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
+            <th>Profile</th>
+            <th>Edit review</th>
+            <th>Detele</th>
             <th></th>
           </tr>
         </thead>

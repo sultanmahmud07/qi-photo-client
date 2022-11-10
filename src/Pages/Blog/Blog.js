@@ -11,57 +11,37 @@ const Blog = () => {
         <div className="single-question">
           <div className="title-wrapper">
             <div >
-              <h2 className="q-title">1. What is CORS in web API?</h2>
+              <h2 className="q-title">1. Difference between SQL and NoSQL</h2>
             </div>
           </div>
-          <p className='q-p'><span className='ans'>Ans:</span> Cross-origin resource sharing (CORS) is a browser security feature that restricts cross-origin HTTP requests that are initiated from scripts running in the browser. If your REST API's resources receive non-simple cross-origin HTTP requests, you need to enable CORS support.</p>
+          <p className='q-p'><span className='ans'>Ans:</span> SQL is the programming language used to interface with relational databases. (Relational databases model data as records in rows and tables with logical links between them). NoSQL is a class of DBMs that are non-relational and generally do not use SQL.</p>
         </div>
         <div className="single-question">
           <div className="title-wrapper">
             <div>
-              <h2 className="q-title">2.1 Why are you using firebase?</h2>
+              <h2 className="q-title">2. What Is JWT? How Does It Work? </h2>
             </div>
           </div>
-          <p className='q-p'><span className='ans'>Ans-2.1:</span> The Firebase Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience.</p>
-        </div>
-
-        <div className="single-question">
-          <div className="title-wrapper">
-            <div>
-              <h2 className="q-title">2.2 What other options do you have to implement authentication without firebass?</h2>
-            </div>
-          </div>
-          {/* <p className='q-p'><span className='ans'>Ans-2.2:</span> <h5 className='hstayle'>Other options.</h5> </p> */}
-          <ul>
-            <li>Auth0</li>
-            <li>MongoDB</li>
-            <li>Passport</li>
-            <li>Okta</li>
-          </ul>
+          <p className='q-p'><span className='ans'>Ans:</span> What is JWT (JSON Web Token)? JSON Web Token (JWT) is an open standard (RFC 7519) for securely transmitting information between parties as JSON object. It is compact, readable and digitally signed using a private key/ or a public key pair by the Identity Provider(IdP).</p>
         </div>
 
         <div className="single-question">
           <div className="title-wrapper">
             <div>
-              <h2 className="q-title">3. How does the private route work?</h2>
+              <h2 className="q-title">3. What is the difference between javascript and Node JS</h2>
             </div>
           </div>
-          <p className='q-p'><span className='ans'>Ans:</span> The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).</p>
+          <p className='q-p'><span className='ans'>Ans:</span> JavaScript is a simple programming language that can be used with any browser that has the JavaScript Engine installed. Node. js, on the other hand, is an interpreter or execution environment for the JavaScript programming language</p>
           
         </div>
         <div className="single-question">
           <div className="title-wrapper">
             <div>
-              <h2 className="q-title">4. What is Node? How does Node work</h2>
+              <h2 className="q-title">4. how does Node JS handle multiple requests at the same time?</h2>
             </div>
           </div>
-          <ul>
-            <li>Node.js is an open source server environment</li>
-            <li>Node.js is free</li>
-            <li>Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.)</li>
-            <li>Node.js uses JavaScript on the server</li>
-          </ul>
-          <p className='q-p'><span className='ans'>Ans:</span> Node. js is an event loop single-threaded language. It can handle concurrent requests with a single thread without blocking it for one request. Non-blocking I/o: Non-blocking i/o means working with multiple requests without blocking the thread for a single request.</p>
+        
+          <p className='q-p'><span className='ans'>Ans:</span>  NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.</p>
           
         </div>
       </div>
