@@ -9,29 +9,17 @@ import Swal from 'sweetalert2';
 const Header = () => {
   const {logOut, user} =useContext(AuthContext);
   // console.log(user?.displayName);
-  // console.log(user?.photoURL);
+  console.log(user?.photoURL);
 
 
   const handleLogOut = () => {
     logOut()
     .then(() =>{
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, logout !'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Logout!',
-            'Your account has been logouted.',
-            'success'
-          )
-        }
-      })
+      Swal.fire(
+        'Logout Successfully!',
+        'You clicked the button!',
+        'success'
+      )
     })
    
   }
@@ -85,7 +73,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           {
-            user?.uid ?
+            user?.photoURL ?
              <>
                 <span className='user-name mr-1 sm:block hidden'>{user?.displayName}</span>
           <img className='w-12 rounded-full' src={user?.photoURL} alt="" />
