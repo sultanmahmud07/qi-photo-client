@@ -6,6 +6,7 @@ import UserReview from './UserReview';
 import Swal from 'sweetalert2';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 const Details = () => {
   const {user} = useContext(AuthContext)
@@ -86,7 +87,11 @@ const Details = () => {
   }
 
   return (
-    <div className='mb-40'>
+   <HelmetProvider>
+    <Helmet>
+      <title>Services-details-Qi-Photo</title>
+    </Helmet>
+     <div className='mb-40'>
       <div className='w-4/5 m-auto'>
         <div>
           <h1 className='text-4xl py-4 text-center font-bold capitalize'>{title}</h1>
@@ -153,6 +158,7 @@ const Details = () => {
       </div>
       <ToastContainer />
     </div>
+   </HelmetProvider>
   );
 };
 

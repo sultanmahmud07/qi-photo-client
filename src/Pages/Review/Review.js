@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import TableRow from './TebleRow/TableRow';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Review = () => {
   // const [noReview, setNoReview] = useState('no reviw add');
@@ -55,7 +56,11 @@ const Review = () => {
 
 
   return (
-    <div className='common-w pb-12'>
+  <HelmetProvider>
+    <Helmet>
+      <title>Review-Qi-Photo</title>
+    </Helmet>
+      <div className='common-w pb-12'>
       <h1 className='text-4xl'>Your reviews</h1>
       <div className="overflow-x-auto w-full">
        {
@@ -93,6 +98,7 @@ const Review = () => {
       </div>
       <ToastContainer />
     </div>
+  </HelmetProvider>
   );
 };
 

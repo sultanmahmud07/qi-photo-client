@@ -1,9 +1,14 @@
 import React from 'react';
 import './Blog.css';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Blog = () => {
   return (
-    <div className='common-w'>
+    <HelmetProvider>
+      <Helmet>
+        <title>Blog-Qi-Photo</title>
+      </Helmet>
+      <div className='common-w'>
       <div className=" text-center d-block">
         <h1 className='blog-title topic-header text-5xl py-4 font-semibold my-5'>These are Blogs!!!</h1>
       </div>
@@ -48,6 +53,7 @@ const Blog = () => {
       
 
     </div>
+    </HelmetProvider>
   );
 };
 

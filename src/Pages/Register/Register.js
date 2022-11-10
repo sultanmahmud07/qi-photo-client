@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerImg from '../../Assat/Register/register.jpg';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const Register = () => {
   const location = useLocation();
@@ -39,7 +41,11 @@ const Register = () => {
     // console.log(name, email, password);
   }
   return (
-    <div className="hero min-h-screen ">
+   <HelmetProvider>
+    <Helmet>
+      <title>Register-Qi-Photo</title>
+    </Helmet>
+     <div className="hero min-h-screen ">
       <div className='common-w'>
         <div className="flex flex-col lg:flex-row gap-3">
           <div className="w-full lg:w-1/2 m-auto">
@@ -83,6 +89,7 @@ const Register = () => {
         </div>
       </div>
     </div>
+   </HelmetProvider>
   );
 };
 

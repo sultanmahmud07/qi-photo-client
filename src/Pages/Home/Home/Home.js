@@ -3,15 +3,21 @@ import About from '../../About/About';
 import HomeServices from '../../homeServices/HomeServices';
 import Services from '../../Services/Services';
 import Banner from '../Banner/Banner';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 const Home = () => {
   return (
-    <div>
+  <HelmetProvider>
+    <Helmet>
+      <title>Qi-Photo</title>
+    </Helmet>
+      <div>
       <Banner></Banner>
       <HomeServices></HomeServices>
       <About></About>
     </div>
+  </HelmetProvider>
   );
 };
 

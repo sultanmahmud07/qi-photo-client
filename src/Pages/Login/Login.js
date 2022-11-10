@@ -5,9 +5,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../Assat/Register/login.jpg';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+// import useTitle from '../../hooks/UseTitle';
 
 
 const Login = () => {
+  // useTitle('Login')
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -85,7 +89,11 @@ const Login = () => {
   }
 
   return (
-    <div className="hero min-h-screen ">
+    <HelmetProvider>
+      <Helmet>
+        <title>Login-Qi-Photo</title>
+      </Helmet>
+       <div className="hero min-h-screen ">
       <div className='common-w'>
         <div className="flex flex-col lg:flex-row gap-3">
           <div className="w-full lg:w-1/2 m-auto">
@@ -127,6 +135,8 @@ const Login = () => {
 
       </div>
     </div>
+    </HelmetProvider>
+   
   );
 };
 
