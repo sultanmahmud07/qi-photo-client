@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <img src={Icon} className='w-24' alt="" />
           </div>
-          <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+          <p>Qi-Photo.com<br />Provider by Sultan Mahmud</p>
         </div>
         <div>
           <span className="footer-title">Services</span>

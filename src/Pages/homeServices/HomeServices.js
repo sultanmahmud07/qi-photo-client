@@ -6,11 +6,21 @@ import ServiceCard from '../../Share/ServiceCard/ServiceCard';
 
 const HomeServices = () => {
   const [services, setServices] =useState([]);
+  const [loading, setLoading] =useState(true)
   useEffect(() => {
     fetch('https://assignment-server-iota.vercel.app/homeservices')
     .then(res => res.json())
-  .then(data => setServices(data))
+  .then(data => {
+    setServices(data)
+    setLoading(false)
+  })
   }, [])
+
+  if(loading){
+    return <div className='text-center py-40'>
+      <div className="radial-progress text-primary " style={{"--value":70}}>70%</div>
+      </div>
+  }
   return (
     <div className='common-w py-6 lg:pt-20'>
       <div>

@@ -48,7 +48,7 @@ const Header = () => {
   
 </>
   return (
-    <div className='border-b-2 h-color mb-3'>
+    <div className='border-b-2 h-color mb-3 py-1'>
       <div className="navbar  common-w">
         <div className="navbar-start">
           <div className="dropdown">
