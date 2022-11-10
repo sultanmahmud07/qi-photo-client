@@ -4,6 +4,7 @@ import AddService from "../../Pages/AddService/AddService";
 import Blog from "../../Pages/Blog/Blog";
 import Details from "../../Pages/Details/Details";
 import Home from "../../Pages/Home/Home/Home";
+import HomeServices from "../../Pages/homeServices/HomeServices";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Review from "../../Pages/Review/Review";
@@ -24,6 +25,11 @@ const router =createBrowserRouter([
       {
         path: '/services',
         element: <Services></Services>
+        
+      },
+      {
+        path: '/homeservices',
+        element: <HomeServices></HomeServices>
         
       },
       {
