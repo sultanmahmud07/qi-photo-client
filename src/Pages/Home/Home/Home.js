@@ -4,6 +4,7 @@ import HomeServices from '../../homeServices/HomeServices';
 import Services from '../../Services/Services';
 import Banner from '../Banner/Banner';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import EditSoftware from '../../EditSoftware/EditSoftware';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Banner></Banner>
       <HomeServices></HomeServices>
       <About></About>
+      <EditSoftware></EditSoftware>
     </div>
   </HelmetProvider>
   );
