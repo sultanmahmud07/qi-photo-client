@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerImg from '../../Assat/Register/register.jpg';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Register = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/';
   const {createUser} =useContext(AuthContext)
 
   const handleRegister = (event) => {
@@ -18,6 +22,7 @@ const Register = () => {
     .then(result => {
       const user =result.user;
       console.log(user);
+      navigate(from, {replace: true})
       Swal.fire(
         'Login Successfully!',
         'You clicked the button!',

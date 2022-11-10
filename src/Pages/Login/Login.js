@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import Login-img from '../../Assat/Register/login.jpg';
 import loginImg from '../../Assat/Register/login.jpg';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -8,6 +8,11 @@ import Swal from 'sweetalert2';
 
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/';
+
   const [error, setError] = useState('');
   const { logIn, googleSignIn, githubLogin } = useContext(AuthContext)
   const provider = new GoogleAuthProvider();
@@ -22,6 +27,7 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
+        navigate(from, {replace: true})
         form.reset('')
         setError('')
         Swal.fire(
@@ -43,6 +49,7 @@ const Login = () => {
     googleSignIn(provider)
     .then(result => {
       console.log(result.user);
+      navigate(from, {replace: true})
       Swal.fire(
         'Login Successfully!',
         'You clicked the button!',
@@ -59,6 +66,7 @@ const Login = () => {
     githubLogin()
     .then(result => {
       console.log(result.user);
+      navigate(from, {replace: true})
       Swal.fire(
         'Login Successfully!',
         'You clicked the button!',
